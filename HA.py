@@ -19,13 +19,13 @@ print (s[0])
 # 'o'
 print (s[5])
 # 'djan'
-
+print (s[0:4])
 # 'jan'
-
+print (s[1:4])
 # 'go'
-
+print (s[4:len(s)])
 # Bonus: Use indexing to reverse the string
-
+print (s[::-1])
 
 ###############
 ## Problem 2 ##
@@ -35,7 +35,8 @@ print (s[5])
 l = [3, 7, [1, 4, 'hello']]
 # Reassign "hello" to be "goodbye"
 
-
+l[2][2]= 'goodbye'
+print (l)
 ###############
 ## Problem 3 ##
 ###############
@@ -55,7 +56,7 @@ d3 = {'k1': [{'nest_key': ['this is deep', ['hello']]}]}
 
 # Use a set to find the unique values of the list below:
 mylist = [1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3]
-
+print (set(mylist))
 
 ###############
 ## Problem 5 ##
@@ -67,7 +68,7 @@ name = "Sammy"
 
 # Use print formatting to print the following string:
 #"Hello my dog's name is Sammy and he is 4 years old"
-
+print ("Hello my dog\'s name is " + str(name) + " and he is " + str(age) + " years old" )
 
 
 
@@ -88,8 +89,28 @@ name = "Sammy"
 # arrayCheck([1, 1, 2, 4, 1]) → False
 # arrayCheck([1, 1, 2, 1, 2, 3]) → True
 
-#def arrayCheck(nums):
+def arrayCheck(nums):
     # CODE GOES HERE
+    one = False
+    two = False
+    three = False
+
+    for x in nums:
+        if x==1:
+            one = True
+        elif x==2:
+            two= True
+        elif x==3:
+            three = True
+        if one and two and three:
+            return True
+
+    return False
+
+print (arrayCheck ([1, 1, 2, 3, 1]))
+print (arrayCheck ([1, 1, 2, 4, 1]))
+print(arrayCheck([1, 1, 2, 1, 2, 3]))
+
 
     #####################
     ## -- PROBLEM 7 -- ##
@@ -105,9 +126,14 @@ name = "Sammy"
     # stringBits('Heeololeo') → 'Hello'
 
 
-#def stringBits(str):
+def stringBits(str):
   # CODE GOES HERE
+  string=str[::2]
+  return string
 
+print (stringBits('Hello'))
+print (stringBits('Hi'))
+print (stringBits('Heeololeo'))
     #####################
     ## -- PROBLEM 8 -- ##
     #####################
@@ -125,9 +151,31 @@ name = "Sammy"
     # end_other('abc', 'abXabc') → True
 
 
-#def end_other(a, b):
+def end_other(a, b):
   # CODE GOES HERE
+  sA=a.lower()
+  sB=b.lower()
+  print (sA)
+  print (sB)
+  print (str(len(a)))
+  print (str(len(b)))
+  if len(sA)>len(sB):
+      temp = sA[len(sB):len(sA)]
+      print (temp)
+      return temp == sB 
 
+  else:
+      temp = sB[len(sA):len(sB)]
+      print(temp)
+      return temp == sA
+      
+
+
+
+
+print(end_other('Hiabc', 'abc'))
+print(end_other('AbC', 'HiaBc'))
+print(end_other('abc', 'abXabc'))
     #####################
     ## -- PROBLEM 9 -- ##
     #####################
