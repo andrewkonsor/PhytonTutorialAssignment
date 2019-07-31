@@ -9,7 +9,7 @@
 ###############
 ## Problem 1 ##
 ###############
-
+print ('## Problem 1 ##\n')
 # Given the string:
 s = 'django'
 print("hello world")
@@ -30,7 +30,7 @@ print (s[::-1])
 ###############
 ## Problem 2 ##
 ###############
-
+print ('\n## Problem 2 ##\n')
 # Given this nested list:
 l = [3, 7, [1, 4, 'hello']]
 # Reassign "hello" to be "goodbye"
@@ -40,7 +40,7 @@ print (l)
 ###############
 ## Problem 3 ##
 ###############
-
+print ('\n## Problem 3 ##\n')
 # Using keys and indexing, grab the 'hello' from the following dictionaries:
 
 d1 = {'simple_key': 'hello'}
@@ -50,10 +50,14 @@ d2 = {'k1': {'k2': 'hello'}}
 d3 = {'k1': [{'nest_key': ['this is deep', ['hello']]}]}
 
 
+print (d1["simple_key"])
+x=d2["k1"]
+print (d2['k1']['k2'])
+print (d3['k1'][0]['nest_key'][1][0])
 ###############
 ## Problem 4 ##
 ###############
-
+print ('\n## Problem 4 ##\n')
 # Use a set to find the unique values of the list below:
 mylist = [1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3]
 print (set(mylist))
@@ -61,7 +65,7 @@ print (set(mylist))
 ###############
 ## Problem 5 ##
 ###############
-
+print ('\n## Problem 5 ##\n')
 # You are given two variables:
 age = 4
 name = "Sammy"
@@ -79,7 +83,7 @@ print ("Hello my dog\'s name is " + str(name) + " and he is " + str(age) + " yea
 #####################
 ## -- PROBLEM 6 -- ##
 #####################
-
+print ('\n## Problem 6 ##\n')
 # Given a list of integers, return True if the sequence of numbers 1, 2, 3
 # appears in the list somewhere.
 
@@ -90,7 +94,7 @@ print ("Hello my dog\'s name is " + str(name) + " and he is " + str(age) + " yea
 # arrayCheck([1, 1, 2, 1, 2, 3]) → True
 
 def arrayCheck(nums):
-    # CODE GOES HERE
+    
     one = False
     two = False
     three = False
@@ -115,7 +119,7 @@ print(arrayCheck([1, 1, 2, 1, 2, 3]))
     #####################
     ## -- PROBLEM 7 -- ##
     #####################
-
+print ('\n## Problem 7 ##\n')
     # Given a string, return a new string made of every other character starting
     # with the first, so "Hello" yields "Hlo".
 
@@ -127,17 +131,19 @@ print(arrayCheck([1, 1, 2, 1, 2, 3]))
 
 
 def stringBits(str):
-  # CODE GOES HERE
+ 
   string=str[::2]
   return string
 
 print (stringBits('Hello'))
 print (stringBits('Hi'))
 print (stringBits('Heeololeo'))
+
+
     #####################
     ## -- PROBLEM 8 -- ##
     #####################
-
+print ('\n## Problem 8 ##\n')
     # Given two strings, return True if either of the strings appears at the very end
     # of the other string, ignoring upper/lower case differences (in other words, the
     # computation should not be "case sensitive").
@@ -152,34 +158,32 @@ print (stringBits('Heeololeo'))
 
 
 def end_other(a, b):
-  # CODE GOES HERE
-  sA=a.lower()
-  sB=b.lower()
-  print (sA)
-  print (sB)
-  print (str(len(a)))
-  print (str(len(b)))
+
   if len(sA)>len(sB):
-      temp = sA[len(sB):len(sA)]
-      print (temp)
+
+      temp = sA[len(sB)-1:]
       return temp == sB 
 
   else:
-      temp = sB[len(sA):len(sB)]
-      print(temp)
+
+      temp = sB[len(sA)-1:]
       return temp == sA
       
 
 
 
-
+print ('Example 1')
 print(end_other('Hiabc', 'abc'))
+
+print ('\nExample 2')
 print(end_other('AbC', 'HiaBc'))
+
+print ('\nExample 3')
 print(end_other('abc', 'abXabc'))
     #####################
     ## -- PROBLEM 9 -- ##
     #####################
-
+print ('\n## Problem 9 ##\n')
     # Given a string, return a string where for every char in the original,
     # there are two chars.
 
@@ -188,13 +192,24 @@ print(end_other('abc', 'abXabc'))
     # doubleChar('Hi-There') → 'HHii--TThheerree'
 
 
-#def doubleChar(str):
+def doubleChar(str):
   # CODE GOES HERE
+    result = ''
 
+    for l in str:
+        result = result + l + l
+      
+
+
+    return result
+
+print (doubleChar('The'))
+print (doubleChar('Aabb'))
+print (doubleChar('Hi-There'))
     #####################
     ## -- PROBLEM 10 -- ##
     #####################
-
+print ('\n## Problem 10 ##\n')
     # Read this problem statement carefully!
 
     # Given 3 int values, a b c, return their sum. However, if any of the values is a
@@ -213,17 +228,26 @@ print(end_other('abc', 'abXabc'))
     # no_teen_sum(2, 1, 14) → 3
 
 
-#def no_teen_sum(a, b, c):
-  # CODE GOES HERE
+def no_teen_sum(a, b, c):
+  return fix_teen(a) + fix_teen(b) + fix_teen(c)
 
 
-#def fix_teen(n):
-  # CODE GOES HERE
+def fix_teen(n):
+  
+  if n>=13 and n <= 19:
+      if n == 15 or n == 16:
+          return n
+      return 0
+  return n
+
+print (no_teen_sum(1, 2, 3))
+print (no_teen_sum(2, 13, 1))
+print (no_teen_sum(2, 1, 14))
 
     #####################
     ## -- PROBLEM 11 -- ##
     #####################
-
+print ('\n## Problem 11 ##\n')
     # Return the number of even integers in the given array.
     #
     # Examples:
@@ -233,7 +257,17 @@ print(end_other('abc', 'abXabc'))
     # count_evens([1, 3, 5]) → 0
 
 
-#def count_evens(nums):
-  # CODE GOES HERE
+def count_evens(nums):
+   x=0
+
+   for e in nums:
+       if e%2==0:
+           x=x+1
+   return x
+
+
+print (count_evens([2, 1, 2, 3, 4]))
+print (count_evens([2, 2, 0]))
+print (count_evens([1, 3, 5]))
 
 
